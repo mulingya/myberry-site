@@ -33,7 +33,7 @@ public class SitemapController {
       // uri = /
       WebSitemapUrl indexUrl =
           new WebSitemapUrl.Options(baseUrl + "/")
-              .lastMod("2022-3-8")
+              .lastMod("2022-4-21")
               .priority(1.0)
               .changeFreq(ChangeFreq.MONTHLY)
               .build();
@@ -105,7 +105,7 @@ public class SitemapController {
       // uri = /faq
       WebSitemapUrl faqUrl =
           new WebSitemapUrl.Options(baseUrl + "/faq")
-              .lastMod("2022-3-8")
+              .lastMod("2022-4-21")
               .priority(1.0)
               .changeFreq(ChangeFreq.MONTHLY)
               .build();
