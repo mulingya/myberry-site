@@ -145,7 +145,7 @@
                 class="java-keyword">throws</span><span>&nbsp;</span><span>Exception {</span>
             </div>
             <div class="java-line-child">
-              <span>DefaultAdminClient</span><span>&nbsp;</span><span class="java-obj">defaultAdminClient</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+              <span>DefaultAdminClient</span><span>&nbsp;</span><span class="java-obj">defaultAdminClient</span><span>&nbsp;</span><span>&#61;</span><span>&nbsp;</span><span
                 class="java-keyword">new</span><span>&nbsp;</span><span>DefaultAdminClient();</span>
             </div>
             <div class="java-line-child">
@@ -168,7 +168,7 @@
               <i class="java-remark">/* create CR */</i>
             </div>
             <div class="java-line-child">
-              <span>CRComponentData</span><span>&nbsp;</span><span class="java-obj">cr</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+              <span>CRComponentData</span><span>&nbsp;</span><span class="java-obj">cr</span><span>&nbsp;</span><span>&#61;</span><span>&nbsp;</span><span
                 class="java-keyword">new</span><span>&nbsp;</span><span>CRComponentData();</span>
             </div>
             <div class="java-line-child">
@@ -184,7 +184,7 @@
             </div>
             <div class="java-line-child">
               <span>SendResult</span><span>&nbsp;</span><span
-                class="java-obj">sr</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                class="java-obj">sr</span><span>&nbsp;</span><span>&#61;</span><span>&nbsp;</span><span
                 class="java-obj">defaultAdminClient</span><span>.createComponent(</span><span
                 class="java-obj">cr</span><span>);</span>
             </div>
@@ -198,7 +198,7 @@
             <br>
             <div class="java-line-child">
               <span
-                  class="java-obj">sr</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                  class="java-obj">sr</span><span>&nbsp;</span><span>&#61;</span><span>&nbsp;</span><span
                 class="java-obj">defaultAdminClient</span><span>.queryComponentByKey(</span><span
                 class="java-str">&quot;key1&quot;</span><span>);</span>
             </div>
@@ -220,7 +220,7 @@
               <i class="java-remark">/* create NS */</i>
             </div>
             <div class="java-line-child">
-              <span>NSComponentData</span><span>&nbsp;</span><span class="java-obj">ns</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+              <span>NSComponentData</span><span>&nbsp;</span><span class="java-obj">ns</span><span>&nbsp;</span><span>&#61;</span><span>&nbsp;</span><span
                 class="java-keyword">new</span><span>&nbsp;</span><span>NSComponentData();</span>
             </div>
             <div class="java-line-child">
@@ -238,7 +238,7 @@
             </div>
             <div class="java-line-child">
               <span
-                  class="java-obj">sr</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                  class="java-obj">sr</span><span>&nbsp;</span><span>&#61;</span><span>&nbsp;</span><span
                 class="java-obj">defaultAdminClient</span><span>.createComponent(</span><span
                 class="java-obj">ns</span><span>);</span>
             </div>
@@ -252,7 +252,7 @@
             <br>
             <div class="java-line-child">
               <span
-                  class="java-obj">sr</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                  class="java-obj">sr</span><span>&nbsp;</span><span>&#61;</span><span>&nbsp;</span><span
                 class="java-obj">defaultAdminClient</span><span>.queryComponentByKey(</span><span
                 class="java-str">&quot;key2&quot;</span><span>);</span>
             </div>
@@ -273,7 +273,7 @@
             </div>
             <div class="java-line-child">
               <span
-                  class="java-obj">sr</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                  class="java-obj">sr</span><span>&nbsp;</span><span>&#61;</span><span>&nbsp;</span><span
                 class="java-obj">defaultAdminClient</span><span>.queryComponentSize();</span>
             </div>
             <div class="java-line-child">
@@ -302,7 +302,7 @@
             </div>
             <div class="java-line-child">
               <span
-                  class="java-obj">sr</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                  class="java-obj">sr</span><span>&nbsp;</span><span>&#61;</span><span>&nbsp;</span><span
                 class="java-obj">defaultAdminClient</span><span>.updateComponent(</span><span
                 class="java-obj">ns</span><span>);</span>
             </div>
@@ -316,7 +316,7 @@
             <br>
             <div class="java-line-child">
               <span
-                  class="java-obj">sr</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                  class="java-obj">sr</span><span>&nbsp;</span><span>&#61;</span><span>&nbsp;</span><span
                 class="java-obj">defaultAdminClient</span><span>.queryComponentByKey(</span><span
                 class="java-str">&quot;key2&quot;</span><span>);</span>
             </div>
@@ -360,7 +360,7 @@
               <i class="java-remark">/* pull CR */</i>
             </div>
             <div class="java-line-child">
-              <span>HashMap&lt;String, String&gt;</span><span>&nbsp;</span><span class="java-obj">attachments</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+              <span>HashMap&lt;String, String&gt;</span><span>&nbsp;</span><span class="java-obj">attachments</span><span>&nbsp;</span><span>&#61;</span><span>&nbsp;</span><span
                 class="java-keyword">new</span><span>&nbsp;</span><span>HashMap&lt;&gt;();</span>
             </div>
             <div class="java-line-child">
@@ -369,12 +369,12 @@
             </div>
             <div class="java-line-child">
               <span>PullResult</span><span>&nbsp;</span><span
-                class="java-obj">pr</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                class="java-obj">pr</span><span>&nbsp;</span><span>&#61;</span><span>&nbsp;</span><span
                 class="java-obj">defaultUserClient</span><span>.pull(</span><span class="java-str">&quot;key1&quot;</span><span>,&nbsp;</span><span
                 class="java-obj">attachments</span><span>);</span>
             </div>
             <div class="java-line-child">
-              <i class="java-comment">PullResult [pullStatus=PULL_OK, key=key1,
+              <i class="java-comment">// PullResult [pullStatus=PULL_OK, key=key1,
                 newId=202112019002m00001world990]</i>
             </div>
             <div class="java-line-child">
@@ -387,7 +387,7 @@
             </div>
             <div class="java-line-child">
               <span
-                  class="java-obj">pr</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                  class="java-obj">pr</span><span>&nbsp;</span><span>&#61;</span><span>&nbsp;</span><span
                 class="java-obj">defaultUserClient</span><span>.pull(</span><span class="java-str">&quot;key2&quot;</span><span>);</span>
             </div>
             <div class="java-line-child">
@@ -397,6 +397,46 @@
             <div class="java-line-child">
               <span>System.</span><span class="java-static">out</span><span>.println(</span><span
                 class="java-obj">pr</span><span>);</span>
+            </div>
+            <br>
+            <div class="java-line-child">
+              <span class="java-keyword">for</span><span>&nbsp;</span><span>(</span><span
+                class="java-keyword">int</span><span>&nbsp;</span><span
+                class="java-obj">i</span><span>&nbsp;</span><span>&#61;</span><span>&nbsp;</span><span
+                class="java-obj">pr</span><span>.getStart();</span><span>&nbsp;</span><span
+                class="java-obj">i</span><span>&nbsp;</span><span>&lt;&#61;</span><span
+                class="java-obj">pr</span><span>.getEnd();</span><span>&nbsp;</span><span
+                class="java-obj">i</span><span>&#43;&#43;</span><span>)</span><span>&nbsp;</span><span>&#123;</span>
+            </div>
+            <div class="java-line-child">
+              <div class="java-line-child">
+                <span>StringBuilder</span><span>&nbsp;</span><span
+                  class="java-obj">builder</span><span>&nbsp;</span><span>&#61;</span><span>&nbsp;</span><span
+                  class="java-keyword">new</span><span>&nbsp;</span><span>StringBuilder();</span>
+              </div>
+            </div>
+            <div class="java-line-child">
+              <div class="java-line-child">
+                <span class="java-obj">builder</span><span>.append(</span><span
+                  class="java-obj">i</span><span>);</span>
+              </div>
+            </div>
+            <div class="java-line-child">
+              <div class="java-line-child">
+                <span class="java-obj">builder</span><span>.append(</span><span
+                  class="java-obj">pr</span><span>.getSynergyId());</span>
+              </div>
+            </div>
+            <br>
+            <div class="java-line-child">
+              <div class="java-line-child">
+                <span>System.</span><span class="java-static">out</span><span>.println(</span><span
+                  class="java-str">&quot;newId=&quot;</span><span>&nbsp;+&nbsp;</span><span
+                  class="java-obj">builder</span><span>.toString());</span>
+              </div>
+            </div>
+            <div class="java-line-child">
+              <span>&#125;</span>
             </div>
             <br>
             <div class="java-line-child">
