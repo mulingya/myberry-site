@@ -11,7 +11,6 @@ JAVA="$JAVA_HOME/bin/java"
 # JVM Configuration
 #===========================================================================================
 JAVA_OPT="${JAVA_OPT} -server -Xmx128m -Xms128m"
-JAVA_OPT="${JAVA_OPT} -XX:+UseG1GC"
 JAVA_OPT="${JAVA_OPT} -cp .:$BASE_DIR/conf:$BASE_DIR/lib/*"
 
 $JAVA ${JAVA_OPT} org.myberry.site.ServerStartup &
