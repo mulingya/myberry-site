@@ -16,8 +16,8 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
-    <spring.boot.version>2.6.1</spring.boot.version>
-    <springframe.version>5.3.13</springframe.version>
+    <spring.boot.version>2.6.2</spring.boot.version>
+    <springframe.version>5.3.14</springframe.version>
     <tomcat.version>9.0.56</tomcat.version>
     <jackson.version>2.13.1</jackson.version>
     <sitemapgen4j.version>1.1.2</sitemapgen4j.version>
