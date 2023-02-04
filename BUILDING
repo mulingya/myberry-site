@@ -1,0 +1,5 @@
+Build distribution packages
+
+$ mvn -Pdev -DskipTests clean package -U
+
+$ mvn -Prls -DskipTests clean package -U

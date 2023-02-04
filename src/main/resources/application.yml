@@ -1,0 +1,23 @@
+server:
+  port: ${server.port}
+  tomcat:
+    accesslog:
+      enabled: true
+      buffered: true
+      directory: ${log.home}
+      file-date-format: .yyyy-MM-dd
+      pattern: '%t [%I] %{X-Forwarded-For}i %a %r %s (%D ms)'
+      prefix: access_log
+      rename-on-rotate: false
+      request-attributes-enabled: false
+      rotate: true
+      suffix: .log
+spring:
+  messages:
+    fallbackToSystemLocale: false
+    basename: i18n/messages
+  main:
+    banner-mode: off
+  profiles:
+    active: ${run.active}
+domain: ${domain}

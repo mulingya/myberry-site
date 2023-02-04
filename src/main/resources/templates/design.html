@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:attr="lang=#{lang}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title th:text="|MyBerry - #{design}|"></title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+  <link rel="bookmark" href="/favicon.ico"/>
+  <link type="text/css" rel="stylesheet" href="static/css/main.css"/>
+  <style>
+    .system-structure {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .system-structure img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .content .norm + .norm {
+      margin-top: 1rem;
+      padding-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="nav-container" id="nav-slider">
+    <div>
+      <div class="logo">
+        <img src="static/svg/myberry.svg">
+      </div>
+      <div class="nav">
+        <div>
+          <ul>
+            <li class="nav-item">
+              <a href="/" class="nav-graph" th:text="#{wellcome}">Wellcome</a>
+            </li>
+            <li class="nav-item">
+              <a href="/quickstart" class="nav-graph" th:text="#{quickstart}">Quick Start</a>
+            </li>
+            <li class="nav-item">
+              <a href="/docs" class="nav-graph" th:text="#{documentation}">Documentation</a>
+            </li>
+            <li class="nav-item">
+              <a href="/license" class="nav-graph" th:text="#{license}">License</a>
+            </li>
+            <li class="nav-item">
+              <a href="/design" class="nav-graph selected" th:text="#{design}">Design</a>
+            </li>
+            <li class="nav-item">
+              <div class="nav-item unfolded" th:text="#{practice}">PRACTICE</div>
+              <ul>
+                <li class="nav-item">
+                  <a href="/dev" class="nav-graph" th:text="#{dev}">Dev</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/ops" class="nav-graph" th:text="#{ops}">Ops</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="/performance" class="nav-graph" th:text="#{performance}">Performance</a>
+            </li>
+            <li class="nav-item">
+              <a href="/faq" class="nav-graph" th:text="#{faq}">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a href="/thanks" class="nav-graph" th:text="#{thanks}">Thanks</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer">
+        <span>© [[${#dates.format(new java.util.Date().getTime(), 'yyyy')}]] MyBerry</span>
+      </div>
+    </div>
+  </div>
+  <div id="glass"
+       onclick="document.getElementById('nav-slider').classList.remove('nav-opened');document.getElementById('glass').classList.remove('glass');"></div>
+  <div class="main-container">
+    <div class="breadcrumbs">
+      <div class="breadcrumb">
+        <botton
+            onclick="document.getElementById('nav-slider').classList.add('nav-opened');document.getElementById('glass').classList.add('glass');">
+          <span></span></botton>
+        <ul>
+          <li>MyBerry</li>
+          <li>/</li>
+          <li th:text="#{design}">Design</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <div class="content">
+        <h1 th:text="#{design}">Design</h1>
+        <div class="system-structure">
+          <img src="static/img/design/architecutre.jpg">
+        </div>
+        <p class="p-space-top" th:text="#{design.introduction}"></p>
+      </div>
+      <div class="content">
+        <h2 th:text="#{design.system.design.summary.title}"></h2>
+        <div class="system-structure" th:switch="#{lang}">
+          <img th:case="zh" src="static/img/design/architecture-design_zh.jpg">
+          <img th:case="*" src="static/img/design/architecture-design_en.jpg">
+        </div>
+        <p class="p-space-top" th:text="#{design.system.design.summary.description}"></p>
+      </div>
+      <div class="content">
+        <h2 th:text="#{design.key.design.norm.title}"></h2>
+        <div class="norm">
+          <p>
+            <em th:text="#{design.key.design.norm.consistency}"></em>
+          </p>
+          <p th:text="#{design.key.design.norm.consistency.description}"></p>
+          <p>
+          <div th:text="#{design.key.design.norm.consistency.question1}"></div>
+          <div th:text="#{design.key.design.norm.consistency.answer1}"></div>
+          </p>
+          <p>
+          <div th:text="#{design.key.design.norm.consistency.question2}"></div>
+          <div th:text="#{design.key.design.norm.consistency.answer2}"></div>
+          </p>
+        </div>
+        <div class="norm">
+          <p>
+            <em th:text="#{design.key.design.norm.availability}"></em>
+          </p>
+          <p th:text="#{design.key.design.norm.availability.description}"></p>
+          <p>
+          <div th:text="#{design.key.design.norm.availability.question1}"></div>
+          <div th:text="#{design.key.design.norm.availability.answer1}"></div>
+          </p>
+          <p>
+          <div th:text="#{design.key.design.norm.availability.question2}"></div>
+          <div th:text="#{design.key.design.norm.availability.answer2}"></div>
+          </p>
+        </div>
+        <div class="norm">
+          <p>
+            <em th:text="#{design.key.design.norm.partition.tolerance}"></em>
+          </p>
+          <p th:text="#{design.key.design.norm.partition.tolerance.description}"></p>
+          <p>
+          <div th:text="#{design.key.design.norm.partition.tolerance.question1}"></div>
+          <div th:text="#{design.key.design.norm.partition.tolerance.answer1}"></div>
+          </p>
+        </div>
+        <div class="norm">
+          <p>
+            <em th:text="#{design.key.design.norm.safety}"></em>
+          </p>
+          <p>
+          <div th:text="#{design.key.design.norm.safety.question1}"></div>
+          <div th:text="#{design.key.design.norm.safety.answer1}"></div>
+          </p>
+          <p>
+          <div th:text="#{design.key.design.norm.safety.question2}"></div>
+          <div th:text="#{design.key.design.norm.safety.answer2}"></div>
+          </p>
+        </div>
+        <div class="norm">
+          <p>
+            <em th:text="#{design.key.design.norm.stability}"></em>
+          </p>
+          <p>
+          <div th:text="#{design.key.design.norm.stability.question1}"></div>
+          <div th:text="#{design.key.design.norm.stability.answer1}"></div>
+          </p>
+          <p>
+          <div th:text="#{design.key.design.norm.stability.question2}"></div>
+          <div th:text="#{design.key.design.norm.stability.answer2}"></div>
+          </p>
+        </div>
+        <div class="norm">
+          <p>
+            <em th:text="#{design.key.design.norm.performance}"></em>
+          </p>
+          <p>
+          <div th:text="#{design.key.design.norm.performance.question1}"></div>
+          <div th:text="#{design.key.design.norm.performance.answer1}"></div>
+          </p>
+          <p>
+          <div th:text="#{design.key.design.norm.performance.question2}"></div>
+          <div th:text="#{design.key.design.norm.performance.answer2}"></div>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

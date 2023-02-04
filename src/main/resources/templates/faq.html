@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:attr="lang=#{lang}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title th:text="|MyBerry - #{faq}|"></title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+  <link rel="bookmark" href="/favicon.ico"/>
+  <link type="text/css" rel="stylesheet" href="static/css/main.css"/>
+  <style>
+    .main-container h2 {
+      font-size: calc(1rem + 0.2vw);
+      border-bottom: 0;
+    }
+
+    @media only screen and (max-width: 60rem/*960px*/
+    ) {
+      .main-container h2 {
+        font-size: 0.95rem;
+        border-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="nav-container" id="nav-slider">
+    <div>
+      <div class="logo">
+        <img src="static/svg/myberry.svg">
+      </div>
+      <div class="nav">
+        <div>
+          <ul>
+            <li class="nav-item">
+              <a href="/" class="nav-graph" th:text="#{wellcome}">Wellcome</a>
+            </li>
+            <li class="nav-item">
+              <a href="/quickstart" class="nav-graph" th:text="#{quickstart}">Quick Start</a>
+            </li>
+            <li class="nav-item">
+              <a href="/docs" class="nav-graph" th:text="#{documentation}">Documentation</a>
+            </li>
+            <li class="nav-item">
+              <a href="/license" class="nav-graph" th:text="#{license}">License</a>
+            </li>
+            <li class="nav-item">
+              <a href="/design" class="nav-graph" th:text="#{design}">Design</a>
+            </li>
+            <li class="nav-item">
+              <div class="nav-item unfolded" th:text="#{practice}">PRACTICE</div>
+              <ul>
+                <li class="nav-item">
+                  <a href="/dev" class="nav-graph" th:text="#{dev}">Dev</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/ops" class="nav-graph" th:text="#{ops}">Ops</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="/performance" class="nav-graph" th:text="#{performance}">Performance</a>
+            </li>
+            <li class="nav-item">
+              <a href="/faq" class="nav-graph selected" th:text="#{faq}">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a href="/thanks" class="nav-graph" th:text="#{thanks}">Thanks</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer">
+        <span>© [[${#dates.format(new java.util.Date().getTime(), 'yyyy')}]] MyBerry</span>
+      </div>
+    </div>
+  </div>
+  <div id="glass"
+       onclick="document.getElementById('nav-slider').classList.remove('nav-opened');document.getElementById('glass').classList.remove('glass');"></div>
+  <div class="main-container">
+    <div class="breadcrumbs">
+      <div class="breadcrumb">
+        <botton
+            onclick="document.getElementById('nav-slider').classList.add('nav-opened');document.getElementById('glass').classList.add('glass');">
+          <span></span></botton>
+        <ul>
+          <li>MyBerry</li>
+          <li>/</li>
+          <li th:text="#{faq}">FAQ</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <div class="content">
+        <h1 th:text="#{faq}">FAQ</h1>
+        <p>
+          <span th:text="#{faq.description}"></span>
+          <span>  </span>
+          <a th:href="@{https://gitee.com/myberry/myberry/issues}" target="_blank"
+             th:text="#{faq.gitee.issues}"></a>
+        </p>
+      </div>
+      <div class="content">
+        <h2 th:text="#{faq.question1}"></h2>
+        <p th:text="#{faq.answer1}"></p>
+      </div>
+      <div class="content">
+        <h2 th:text="#{faq.question2}"></h2>
+        <p th:text="#{faq.answer2}"></p>
+      </div>
+      <div class="content">
+        <h2 th:text="#{faq.question3}"></h2>
+        <p th:text="#{faq.answer3}"></p>
+      </div>
+      <div class="content">
+        <h2 th:text="#{faq.question4}"></h2>
+        <p th:text="#{faq.answer4}"></p>
+      </div>
+      <div class="content">
+        <h2 th:text="#{faq.question5}"></h2>
+        <p th:text="#{faq.answer5}"></p>
+      </div>
+      <div class="content">
+        <h2 th:text="#{faq.question6}"></h2>
+        <p th:text="#{faq.answer6}"></p>
+      </div>
+      <div class="content">
+        <h2 th:text="#{faq.question7}"></h2>
+        <p th:text="#{faq.answer7}"></p>
+      </div>
+      <div class="content">
+        <h2 th:text="#{faq.question8}"></h2>
+        <p th:text="#{faq.answer8}"></p>
+      </div>
+      <div class="content">
+        <h2 th:text="#{faq.question9}"></h2>
+        <p th:text="#{faq.answer9}"></p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

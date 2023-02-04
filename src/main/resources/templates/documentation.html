@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:attr="lang=#{lang}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title th:text="|MyBerry - #{documentation}|"></title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+  <link rel="bookmark" href="/favicon.ico"/>
+  <link type="text/css" rel="stylesheet" href="static/css/main.css"/>
+  <link type="text/css" rel="stylesheet" href="static/css/code.css"/>
+  <style>
+    @media only screen and (max-width: 23rem/*368px*/
+    ) {
+      table th:last-child, table td:last-child {
+        display: none;
+      }
+    }
+
+    .docs {
+      font-family: open sans, -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+      font-size: calc(1rem + 0.1vw);
+    }
+
+    @media only screen and (max-width: 60rem/*960px*/
+    ) {
+      .docs {
+        font-family: open sans, -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+        font-size: 0.75rem;
+      }
+    }
+
+    strong {
+      color: #2c4557;
+    }
+
+    .ordinary {
+      font-weight: 350;
+    }
+
+    .impl {
+      margin-top: 1rem;
+    }
+
+    .method-detail {
+      margin-top: 1rem;
+      padding: 0px 20px 5px 10px;
+      border: 1px solid #ededed;
+      background-color: #f8f8f8;
+    }
+
+    .method-detail-name {
+      padding: 1rem 0;
+    }
+
+    .method + .method {
+      margin-top: 0.2rem;
+      padding-top: 0.2rem;
+    }
+
+    .method-name {
+      background-color: #dee3e9;
+      border: 1px solid #d0d9e0;
+      padding: 0.3rem 0 0.3rem 5px;
+    }
+
+    .method-desc {
+      background-color: #ffffff;
+    }
+
+    .method-desc > div {
+      margin-left: 10px;
+      padding: 0.2rem 0;
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="nav-container" id="nav-slider">
+    <div>
+      <div class="logo">
+        <img src="static/svg/myberry.svg">
+      </div>
+      <div class="nav">
+        <div>
+          <ul>
+            <li class="nav-item">
+              <a href="/" class="nav-graph" th:text="#{wellcome}">Wellcome</a>
+            </li>
+            <li class="nav-item">
+              <a href="/quickstart" class="nav-graph" th:text="#{quickstart}">Quick Start</a>
+            </li>
+            <li class="nav-item">
+              <a href="/docs" class="nav-graph selected"
+                 th:text="#{documentation}">Documentation</a>
+            </li>
+            <li class="nav-item">
+              <a href="/license" class="nav-graph" th:text="#{license}">License</a>
+            </li>
+            <li class="nav-item">
+              <a href="/design" class="nav-graph" th:text="#{design}">Design</a>
+            </li>
+            <li class="nav-item">
+              <div class="nav-item unfolded" th:text="#{practice}">PRACTICE</div>
+              <ul>
+                <li class="nav-item">
+                  <a href="/dev" class="nav-graph" th:text="#{dev}">Dev</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/ops" class="nav-graph" th:text="#{ops}">Ops</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="/performance" class="nav-graph" th:text="#{performance}">Performance</a>
+            </li>
+            <li class="nav-item">
+              <a href="/faq" class="nav-graph" th:text="#{faq}">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a href="/thanks" class="nav-graph" th:text="#{thanks}">Thanks</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer">
+        <span>© [[${#dates.format(new java.util.Date().getTime(), 'yyyy')}]] MyBerry</span>
+      </div>
+    </div>
+  </div>
+  <div id="glass"
+       onclick="document.getElementById('nav-slider').classList.remove('nav-opened');document.getElementById('glass').classList.remove('glass');"></div>
+  <div class="main-container">
+    <div class="breadcrumbs">
+      <div class="breadcrumb">
+        <botton
+            onclick="document.getElementById('nav-slider').classList.add('nav-opened');document.getElementById('glass').classList.add('glass');">
+          <span></span></botton>
+        <ul>
+          <li>MyBerry</li>
+          <li>/</li>
+          <li th:text="#{documentation}">Documentation</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <div class="content">
+        <h1 th:text="#{documentation}">Documentation</h1>
+        <p th:text="#{documentation.description}"></p>
+      </div>
+      <div class="content">
+        <h2 th:text="#{documentation.user.title}"></h2>
+        <div class="docs">
+          <div>
+            <strong>Class DefaultUserClient</strong>
+            <div class="ordinary">java.lang.Object</div>
+            <div>
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="ordinary">org.myberry.client.AbstractMyberryClient</span>
+            </div>
+            <div><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                class="ordinary">org.myberry.client.user.DefaultUserClient</span>
+            </div>
+            <div class="impl">Implemented Interfaces</div>
+            <div class="ordinary">org.myberry.client.user.UserClient</div>
+          </div>
+          <div class="method-detail">
+            <div class="method-detail-name">Method Detail</div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">PullResult pull(String key)</div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.sync.roundrobin.failfast}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">PullResult pull(String key, HashMap&lt;String, String&gt;
+                  attachments)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.sync.roundrobin.failfast}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.attachments}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">PullResult pull(String key, long timeout)</div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.sync.roundrobin.failfast}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timeout}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">PullResult pull(String key, HashMap&lt;String, String&gt;
+                  attachments, long timeout)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.sync.roundrobin.failfast}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.attachments}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timeout}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">PullResult pull(String key, long timeout, int timesRetry)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.sync.roundrobin.failover}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timeout}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timesretry}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">PullResult pull(String key, HashMap&lt;String, String&gt;
+                  attachments, long timeout, int timesRetry)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.sync.roundrobin.failover}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.attachments}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timeout}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timesretry}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">PullResult pull(String key, String sessionKey)</div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.sync.consistenthash.failfast}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.sessionkey}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">PullResult pull(String key, HashMap&lt;String, String&gt;
+                  attachments, String sessionKey)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.sync.consistenthash.failfast}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.attachments}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.sessionkey}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">PullResult pull(String key, String sessionKey, long timeout)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.sync.consistenthash.failfast}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.sessionkey}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timeout}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">PullResult pull(String key, HashMap&lt;String, String&gt;
+                  attachments, String sessionKey, long timeout)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.sync.consistenthash.failfast}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.attachments}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.sessionkey}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timeout}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">PullResult pull(String key, String sessionKey, long timeout,
+                  int timesRetry)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.sync.consistenthash.failover}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.sessionkey}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timeout}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timesretry}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">PullResult pull(String key, HashMap&lt;String, String&gt;
+                  attachments, String sessionKey, long timeout, int timesRetry)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.sync.consistenthash.failover}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.attachments}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.sessionkey}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timeout}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timesretry}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">void pull(String key, PullCallback pullCallback)</div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.async.roundrobin.failfast}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.callback}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">void pull(String key, HashMap&lt;String, String&gt;
+                  attachments, PullCallback pullCallback)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.async.roundrobin.failfast}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.attachments}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.callback}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">void pull(String key, PullCallback pullCallback, long
+                  timeout)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.async.roundrobin.failfast}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.callback}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timeout}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">void pull(String key, HashMap&lt;String, String&gt;
+                  attachments, PullCallback pullCallback, long timeout)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.async.roundrobin.failfast}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.attachments}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.callback}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timeout}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">void pull(String key, PullCallback pullCallback, long timeout,
+                  int timesRetry)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.async.roundrobin.failover}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.callback}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timeout}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timesretry}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">void pull(String key, HashMap&lt;String, String&gt;
+                  attachments, PullCallback pullCallback, long timeout, int timesRetry)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.async.roundrobin.failover}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.attachments}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.callback}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timeout}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timesretry}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">void pull(String key, PullCallback pullCallback, String
+                  sessionKey)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.async.consistenthash.failfast}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.callback}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.sessionkey}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">void pull(String key, HashMap&lt;String, String&gt;
+                  attachments, PullCallback pullCallback, String sessionKey)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.async.consistenthash.failfast}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.attachments}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.callback}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.sessionkey}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">void pull(String key, PullCallback pullCallback, String
+                  sessionKey, long timeout)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.async.consistenthash.failfast}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.callback}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.sessionkey}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timeout}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">void pull(String key, HashMap&lt;String, String&gt;
+                  attachments, PullCallback pullCallback, String sessionKey, long timeout)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.async.consistenthash.failfast}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.attachments}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.callback}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.sessionkey}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timeout}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">void pull(String key, PullCallback pullCallback, String
+                  sessionKey, long timeout, int timesRetry)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.async.consistenthash.failover}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.callback}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.sessionkey}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timeout}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timesretry}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">pull</div>
+              <div class="method-desc">
+                <div class="ordinary">void pull(String key, HashMap&lt;String, String&gt;
+                  attachments, PullCallback pullCallback, String sessionKey, long timeout, int
+                  timesRetry)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.desc.async.consistenthash.failover}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.user.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.attachments}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.callback}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.sessionkey}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timeout}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.user.method.parameter.timesretry}"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <h2 th:text="#{documentation.admin.title}"></h2>
+        <div class="docs">
+          <div>
+            <strong>Class DefaultAdminClient</strong>
+            <div class="ordinary">java.lang.Object</div>
+            <div>
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="ordinary">org.myberry.client.AbstractMyberryClient</span>
+            </div>
+            <div><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                class="ordinary">org.myberry.client.admin.DefaultAdminClient</span>
+            </div>
+            <div class="impl">Implemented Interfaces</div>
+            <div class="ordinary">org.myberry.client.admin.AdminClient</div>
+          </div>
+          <div class="method-detail">
+            <div class="method-detail-name">Method Detail</div>
+            <div class="method">
+              <div class="method-name">createComponent</div>
+              <div class="method-desc">
+                <div class="ordinary">SendResult createComponent(Component component)</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.desc.sync.createcomponent}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.parameter.component}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.admin.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">createComponent</div>
+              <div class="method-desc">
+                <div class="ordinary">SendResult createComponent(Component component, long
+                  timeout)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.desc.sync.createcomponent}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.parameter.component}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.parameter.timeout}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.admin.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">updateComponent</div>
+              <div class="method-desc">
+                <div class="ordinary">SendResult updateComponent(NSComponentData component)</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.desc.sync.updatecomponent}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.parameter.nscomponent}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.admin.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">updateComponent</div>
+              <div class="method-desc">
+                <div class="ordinary">SendResult updateComponent(NSComponentData component, long
+                  timeout)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.desc.sync.updatecomponent}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.parameter.nscomponent}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.parameter.timeout}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.admin.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">queryComponentSize</div>
+              <div class="method-desc">
+                <div class="ordinary">SendResult queryComponentSize()</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.desc.sync.querycomponentsize}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.admin.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">queryComponentSize</div>
+              <div class="method-desc">
+                <div class="ordinary">SendResult queryComponentSize(long timeout)</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.desc.sync.querycomponentsize}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.parameter.timeout}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.admin.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">queryComponentByKey</div>
+              <div class="method-desc">
+                <div class="ordinary">SendResult queryComponentByKey(String key)</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.desc.sync.querycomponentbykey}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.admin.method.parameter.key}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.admin.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">queryComponentByKey</div>
+              <div class="method-desc">
+                <div class="ordinary">SendResult queryComponentByKey(String key, long timeout)</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.desc.sync.querycomponentbykey}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary" th:text="#{documentation.admin.method.parameter.key}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.parameter.timeout}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.admin.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">queryClusterList</div>
+              <div class="method-desc">
+                <div class="ordinary">SendResult queryClusterList()</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.desc.sync.queryclusterlist}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.admin.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">queryClusterList</div>
+              <div class="method-desc">
+                <div class="ordinary">SendResult queryClusterList(long timeout)</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.desc.sync.queryclusterlist}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.parameter.timeout}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.admin.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">kickOutInvoker</div>
+              <div class="method-desc">
+                <div class="ordinary">SendResult kickOutInvoker(int kickedSid)</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.desc.sync.kickoutinvoker}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.parameter.kickedsid}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.admin.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">kickOutInvoker</div>
+              <div class="method-desc">
+                <div class="ordinary">SendResult kickOutInvoker(int kickedSid, long timeout)</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.desc.sync.kickoutinvoker}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.parameter.kickedsid}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.parameter.timeout}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.admin.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">removeInvoker</div>
+              <div class="method-desc">
+                <div class="ordinary">SendResult removeInvoker(int kickedSid)</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.desc.sync.removeinvoker}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.parameter.kickedsid}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.admin.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">removeInvoker</div>
+              <div class="method-desc">
+                <div class="ordinary">SendResult removeInvoker(int kickedSid, long timeout)</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.desc.sync.removeinvoker}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.parameter.kickedsid}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.parameter.timeout}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.admin.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">updateWeight</div>
+              <div class="method-desc">
+                <div class="ordinary">SendResult updateWeight(int sid, int weight)</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.desc.sync.updateweight}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.parameter.sid}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.parameter.weight}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.admin.method.return}"></div>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-name">updateWeight</div>
+              <div class="method-desc">
+                <div class="ordinary">SendResult updateWeight(int sid, int weight, long timeout)
+                </div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.desc.sync.updateweight}"></div>
+                <div>Parameters:</div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.parameter.sid}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.parameter.weight}"></div>
+                <div class="ordinary"
+                     th:text="#{documentation.admin.method.parameter.timeout}"></div>
+                <div>Returns:</div>
+                <div class="ordinary" th:text="#{documentation.admin.method.return}"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

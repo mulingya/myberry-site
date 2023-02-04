@@ -1,0 +1,94 @@
+@charset "utf-8";
+.language {
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+  padding: 20px 20px;
+  border: 1px solid #f2f3f3;
+  border-radius: 4px;
+  background-color: #fafafa;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+/**---------xml---------*/
+
+div.xml-dom-child {
+  position: relative;
+  margin-left: 40px;
+}
+
+.xml-dom {
+  color: #71c671;
+}
+
+.xml-property {
+  color: #7a8b8b;
+}
+
+/**---------bash---------*/
+
+.bash-nt {
+  color: #00cdcd;
+}
+
+.bash-nb {
+  color: #b58900;
+}
+
+/**---------shell---------*/
+
+.shell-export {
+  color: #ff7f24;
+}
+
+.shell-dl {
+  color: #483d8b;
+}
+
+.shell-var {
+  color: #9c9c9c;
+}
+
+/**---------properties---------*/
+.prop-item {
+  color: #586069;
+}
+
+.prop-comment {
+  color: #9bcd9b;
+}
+
+/**---------java---------*/
+
+div.java-line-child {
+  position: relative;
+  margin-left: 40px;
+}
+
+.java-keyword {
+  color: #008b8b;
+}
+
+.java-annotation {
+  color: #707070;
+}
+
+.java-obj {
+  color: #8b636c;
+}
+
+.java-str {
+  color: #616161;
+}
+
+.java-static {
+  color: #104e8b;
+}
+
+.java-comment {
+  color: #ffd39b;
+}
+
+.java-remark {
+  color: #96cdcd;
+}

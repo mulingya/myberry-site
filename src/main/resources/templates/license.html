@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:attr="lang=#{lang}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title th:text="|MyBerry - #{license}|"></title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+  <link rel="bookmark" href="/favicon.ico"/>
+  <link type="text/css" rel="stylesheet" href="static/css/main.css"/>
+  <style>
+    .content p + p {
+      margin-top: 1rem;
+      padding-top: 1rem;
+    }
+
+    .content > ul {
+      list-style: none;
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="nav-container" id="nav-slider">
+    <div>
+      <div class="logo">
+        <img src="static/svg/myberry.svg">
+      </div>
+      <div class="nav">
+        <div>
+          <ul>
+            <li class="nav-item">
+              <a href="/" class="nav-graph" th:text="#{wellcome}">Wellcome</a>
+            </li>
+            <li class="nav-item">
+              <a href="/quickstart" class="nav-graph" th:text="#{quickstart}">Quick Start</a>
+            </li>
+            <li class="nav-item">
+              <a href="/docs" class="nav-graph" th:text="#{documentation}">Documentation</a>
+            </li>
+            <li class="nav-item">
+              <a href="/license" class="nav-graph selected" th:text="#{license}">License</a>
+            </li>
+            <li class="nav-item">
+              <a href="/design" class="nav-graph" th:text="#{design}">Design</a>
+            </li>
+            <li class="nav-item">
+              <div class="nav-item unfolded" th:text="#{practice}">PRACTICE</div>
+              <ul>
+                <li class="nav-item">
+                  <a href="/dev" class="nav-graph" th:text="#{dev}">Dev</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/ops" class="nav-graph" th:text="#{ops}">Ops</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="/performance" class="nav-graph" th:text="#{performance}">Performance</a>
+            </li>
+            <li class="nav-item">
+              <a href="/faq" class="nav-graph" th:text="#{faq}">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a href="/thanks" class="nav-graph" th:text="#{thanks}">Thanks</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer">
+        <span>© [[${#dates.format(new java.util.Date().getTime(), 'yyyy')}]] MyBerry</span>
+      </div>
+    </div>
+  </div>
+  <div id="glass"
+       onclick="document.getElementById('nav-slider').classList.remove('nav-opened');document.getElementById('glass').classList.remove('glass');"></div>
+  <div class="main-container">
+    <div class="breadcrumbs">
+      <div class="breadcrumb">
+        <botton
+            onclick="document.getElementById('nav-slider').classList.add('nav-opened');document.getElementById('glass').classList.add('glass');">
+          <span></span></botton>
+        <ul>
+          <li>MyBerry</li>
+          <li>/</li>
+          <li th:text="#{license}">License</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <div class="content">
+        <h1>MIT License</h1>
+        <p>
+        <ul>
+          <li>Copyright (c) 2021 MyBerry. All rights reserved.</li>
+          <li>https://myberry.org/</li>
+        </ul>
+        </p>
+        <p>Permission is hereby granted, free of charge, to any person obtaining a copy
+          of this software and associated documentation files (the "Software"), to deal
+          in the Software without restriction, including without limitation the rights
+          to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+          copies of the Software, and to permit persons to whom the Software is
+          furnished to do so, subject to the following conditions:
+        </p>
+        <p>
+        <ul>
+          <li>* Redistributions of source code must retain the above copyright notice, this
+            list of conditions and the following disclaimer.
+          </li>
+          <li>* Redistributions in binary form must reproduce the above copyright notice,
+            this list of conditions and the following disclaimer in the documentation
+            and/or other materials provided with the distribution.
+          </li>
+          <li>* Neither the name of MyBerry. nor the names of its contributors may be used
+            to endorse or promote products derived from this software without specific
+            prior written permission.
+          </li>
+        </ul>
+        </p>
+        <p>The above copyright notice and this permission notice shall be included in all
+          copies or substantial portions of the Software.
+        </p>
+        <p>
+          THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+          IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+          FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+          AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+          LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+          OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+          SOFTWARE.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

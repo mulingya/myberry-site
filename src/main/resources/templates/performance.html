@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:attr="lang=#{lang}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title th:text="|MyBerry - #{performance}|"></title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+  <link rel="bookmark" href="/favicon.ico"/>
+  <link type="text/css" rel="stylesheet" href="static/css/main.css"/>
+  <script src="static/js/chart.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+  <div class="nav-container" id="nav-slider">
+    <div>
+      <div class="logo">
+        <img src="static/svg/myberry.svg">
+      </div>
+      <div class="nav">
+        <div>
+          <ul>
+            <li class="nav-item">
+              <a href="/" class="nav-graph" th:text="#{wellcome}">Wellcome</a>
+            </li>
+            <li class="nav-item">
+              <a href="/quickstart" class="nav-graph" th:text="#{quickstart}">Quick Start</a>
+            </li>
+            <li class="nav-item">
+              <a href="/docs" class="nav-graph" th:text="#{documentation}">Documentation</a>
+            </li>
+            <li class="nav-item">
+              <a href="/license" class="nav-graph" th:text="#{license}">License</a>
+            </li>
+            <li class="nav-item">
+              <a href="/design" class="nav-graph" th:text="#{design}">Design</a>
+            </li>
+            <li class="nav-item">
+              <div class="nav-item unfolded" th:text="#{practice}">PRACTICE</div>
+              <ul>
+                <li class="nav-item">
+                  <a href="/dev" class="nav-graph" th:text="#{dev}">Dev</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/ops" class="nav-graph" th:text="#{ops}">Ops</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="/performance" class="nav-graph selected"
+                 th:text="#{performance}">Performance</a>
+            </li>
+            <li class="nav-item">
+              <a href="/faq" class="nav-graph" th:text="#{faq}">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a href="/thanks" class="nav-graph" th:text="#{thanks}">Thanks</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer">
+        <span>© [[${#dates.format(new java.util.Date().getTime(), 'yyyy')}]] MyBerry</span>
+      </div>
+    </div>
+  </div>
+  <div id="glass"
+       onclick="document.getElementById('nav-slider').classList.remove('nav-opened');document.getElementById('glass').classList.remove('glass');"></div>
+  <div class="main-container">
+    <div class="breadcrumbs">
+      <div class="breadcrumb">
+        <botton
+            onclick="document.getElementById('nav-slider').classList.add('nav-opened');document.getElementById('glass').classList.add('glass');">
+          <span></span></botton>
+        <ul>
+          <li>MyBerry</li>
+          <li>/</li>
+          <li th:text="#{performance}">Performance</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <div class="content">
+        <h1 th:text="#{performance}"></h1>
+        <p th:text="#{performance.introduction}"></p>
+      </div>
+      <div class="content">
+        <h2 th:text="#{performance.codec.title}"></h2>
+        <p th:text="#{performance.codec.introduction}"></p>
+        <p th:text="#{performance.codec.test.description}"></p>
+        <canvas id="lineChart" width="600" height="400"></canvas>
+      </div>
+      <div class="content">
+        <h2 th:text="#{performance.instance.title}"></h2>
+        <p th:text="#{performance.instance.introduction}"></p>
+        <canvas id="barChart" width="600" height="400"></canvas>
+        <p th:text="#{performance.instance.test.description}"></p>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  var lineChart = document.getElementById('lineChart').getContext('2d');
+  new Chart(lineChart, {
+    type: 'line',
+    data: {
+      labels: ['10^1', '10^2', '10^3', '10^4', '10^5', '10^6', '10^7'],
+      datasets: [
+        {
+          label: 'LightCodec',
+          tension: 0.3,
+          fill: false,
+          borderWidth: 2,
+          borderColor: 'rgb(205, 79, 57)',
+          pointHoverBackgroundColor: 'rgb(139, 54, 38)',
+          data: [81, 84, 94, 125, 219, 607, 3465]
+        },
+        {
+          label: 'FastJSON',
+          tension: 0.3,
+          fill: false,
+          borderWidth: 2,
+          borderColor: 'rgb(79, 148, 205)',
+          pointHoverBackgroundColor: 'rgb(54, 100, 139)',
+          data: [86, 93, 117, 160, 274, 963, 7698]
+        },
+        {
+          label: 'ProtoBuf',
+          tension: 0.3,
+          fill: false,
+          borderWidth: 2,
+          borderColor: 'rgb(137, 104, 205)',
+          pointHoverBackgroundColor: 'rgb(93, 71, 139)',
+          data: [31, 35, 52, 76, 167, 559, 4584]
+        }
+      ]
+    },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'Performance under different pressures'
+        }
+      },
+      scales: {
+        x: {
+          display: true,
+          title: {
+            display: true,
+            text: 'Execution Times'
+          }
+        },
+        y: {
+          display: true,
+          title: {
+            display: true,
+            text: 'Millisecond'
+          }
+        }
+      }
+    }
+  });
+
+  var barChart = document.getElementById('barChart').getContext('2d');
+  new Chart(barChart, {
+    type: 'bar',
+    data: {
+      labels: ['1000', '10000', '30000', '50000', '100000'],
+      datasets: [{
+        data: [407, 1591, 3599, 5097, 9638],
+        label: '1-thread',
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgb(75, 192, 192)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'Client single thread performance'
+        }
+      },
+      scales: {
+        x: {
+          display: true,
+          title: {
+            display: true,
+            text: 'Call Times'
+          }
+        },
+        y: {
+          display: true,
+          title: {
+            display: true,
+            text: 'Millisecond'
+          }
+        }
+      }
+    }
+  });
+</script>
+</body>
+</html>

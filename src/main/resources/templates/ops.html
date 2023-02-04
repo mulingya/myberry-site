@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:attr="lang=#{lang}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title th:text="|MyBerry - #{ops}|"></title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+  <link rel="bookmark" href="/favicon.ico"/>
+  <link type="text/css" rel="stylesheet" href="static/css/main.css"/>
+  <link type="text/css" rel="stylesheet" href="static/css/code.css"/>
+  <style>
+    @media only screen and (max-width: 66rem/*1056px*/
+    ) {
+      table td:nth-child(2) > div {
+        width: 5rem;
+        height: auto;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    @media only screen and (max-width: 32rem/*512px*/
+    ) {
+      table td:nth-child(2) > div {
+        width: 3rem;
+        height: auto;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    @media only screen and (max-width: 30rem/*480px*/
+    ) {
+      table th:nth-child(2), table td:nth-child(2) {
+        display: none;
+      }
+    }
+
+    @media only screen and (max-width: 23rem/*368px*/
+    ) {
+      table th:nth-child(2), table td:nth-child(2) {
+        display: none;
+      }
+
+      table th:last-child, table td:last-child {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="nav-container" id="nav-slider">
+    <div>
+      <div class="logo">
+        <img src="static/svg/myberry.svg">
+      </div>
+      <div class="nav">
+        <div>
+          <ul>
+            <li class="nav-item">
+              <a href="/" class="nav-graph" th:text="#{wellcome}">Wellcome</a>
+            </li>
+            <li class="nav-item">
+              <a href="/quickstart" class="nav-graph" th:text="#{quickstart}">Quick Start</a>
+            </li>
+            <li class="nav-item">
+              <a href="/docs" class="nav-graph" th:text="#{documentation}">Documentation</a>
+            </li>
+            <li class="nav-item">
+              <a href="/license" class="nav-graph" th:text="#{license}">License</a>
+            </li>
+            <li class="nav-item">
+              <a href="/design" class="nav-graph" th:text="#{design}">Design</a>
+            </li>
+            <li class="nav-item">
+              <div class="nav-item unfolded" th:text="#{practice}">PRACTICE</div>
+              <ul>
+                <li class="nav-item">
+                  <a href="/dev" class="nav-graph" th:text="#{dev}">Dev</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/ops" class="nav-graph selected" th:text="#{ops}">Ops</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="/performance" class="nav-graph" th:text="#{performance}">Performance</a>
+            </li>
+            <li class="nav-item">
+              <a href="/faq" class="nav-graph" th:text="#{faq}">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a href="/thanks" class="nav-graph" th:text="#{thanks}">Thanks</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer">
+        <span>© [[${#dates.format(new java.util.Date().getTime(), 'yyyy')}]] MyBerry</span>
+      </div>
+    </div>
+  </div>
+  <div id="glass"
+       onclick="document.getElementById('nav-slider').classList.remove('nav-opened');document.getElementById('glass').classList.remove('glass');"></div>
+  <div class="main-container">
+    <div class="breadcrumbs">
+      <div class="breadcrumb">
+        <botton
+            onclick="document.getElementById('nav-slider').classList.add('nav-opened');document.getElementById('glass').classList.add('glass');">
+          <span></span></botton>
+        <ul>
+          <li>MyBerry</li>
+          <li>/</li>
+          <li th:text="#{ops}">Ops</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <div class="content">
+        <h1 th:text="#{ops}">Ops</h1>
+        <p th:text="#{ops.introduction}"></p>
+      </div>
+      <div class="content">
+        <h2 th:text="#{ops.install.title}">Install</h2>
+        <p th:text="#{ops.install.description1}"></p>
+        <p th:text="#{ops.install.description2}"></p>
+        <div class="code-block">
+          <p th:text="#{ops.install.compile.compression}"></p>
+          <div class="language">
+            <span>mvn</span><span>&nbsp;</span><span
+              class="bash-nt">-Prelease-all</span><span>&nbsp;</span><span
+              class="bash-nt">-DskipTests</span><span>&nbsp;</span><span>clean</span><span>&nbsp;</span><span
+              class="bash-nb">install</span><span>&nbsp;</span><span class="bash-nt">-U</span>
+          </div>
+        </div>
+        <div class="code-block">
+          <p th:text="#{ops.install.decompression}"></p>
+          <div class="language">
+            <div>tar zxvf myberry.tar.gz</div>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <h2 th:text="#{ops.configuring.title}">Configure</h2>
+        <p class="p-space-bottom">
+          <span th:text="#{ops.configuring.introduction1}"></span>
+          <span class="code-config">myberry.properties</span>
+          <span th:text="#{ops.configuring.introduction2}"></span>
+        </p>
+        <table>
+          <thead>
+          <tr>
+            <th th:text="#{ops.configuring.property.name}">Property Name</th>
+            <th th:text="#{ops.configuring.default.value}">Default Value</th>
+            <th th:text="#{ops.configuring.details}">Details</th>
+            <th th:text="#{ops.configuring.required}">Required</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>listenPort</td>
+            <td>
+              <div>8085</div>
+            </td>
+            <td th:text="#{ops.configuring.listenport.details}"></td>
+            <td>Y</td>
+          </tr>
+          <tr>
+            <td>mySid</td>
+            <td>
+              <div>0</div>
+            </td>
+            <td th:text="#{ops.configuring.mysid.details}"></td>
+            <td>N</td>
+          </tr>
+          <tr>
+            <td>haServerAddr</td>
+            <td>
+              <div>null</div>
+            </td>
+            <td th:text="#{ops.configuring.haserveraddr.details}"></td>
+            <td>N</td>
+          </tr>
+          <tr>
+            <td>storePath</td>
+            <td>
+              <div>${USER_HOME}/.myberry</div>
+            </td>
+            <td th:text="#{ops.configuring.storepath.details}"></td>
+            <td>N</td>
+          </tr>
+          <tr>
+            <td>weight</td>
+            <td>
+              <div>1</div>
+            </td>
+            <td th:text="#{ops.configuring.weight.details}"></td>
+            <td>N</td>
+          </tr>
+          <tr>
+            <td>password</td>
+            <td>
+              <div>foobared</div>
+            </td>
+            <td th:text="#{ops.configuring.password.details}"></td>
+            <td>Y</td>
+          </tr>
+          <tr>
+            <td>writeBackEnabled</td>
+            <td>
+              <div>true</div>
+            </td>
+            <td th:text="#{ops.configuring.writebackenabled.details}"></td>
+            <td>N</td>
+          </tr>
+          </tbody>
+        </table>
+        <p class="p-space-top">
+          <em th:text="#{ops.configuring.cluster}"></em>
+        </p>
+        <div class="code-block">
+          <p th:text="#{ops.configuring.cluster.details}"></p>
+          <div class="language">
+            <div>
+              <span class="prop-item">mySid</span><span>=..</span>
+            </div>
+            <div>
+              <span class="prop-item">haServerAddr</span><span>=..</span>
+            </div>
+          </div>
+        </div>
+        <p class="p-space-top">
+          <em th:text="#{ops.configuring.multi.instance}"></em>
+        </p>
+        <p th:text="#{ops.configuring.multi.instance.details}"></p>
+        <div class="code-block">
+          <p>
+            <span th:text="#{ops.configuring.multi.instance.edit}"></span>
+            <span class="code-config">./bin/startup.sh</span>
+            <span th:text="#{ops.configuring.multi.instance.path}"></span>
+          </p>
+          <div class="language">
+            <div>
+              <span class="shell-export">export</span><span>&nbsp;</span><span
+                class="shell-var">MYBERRY_HOME</span><span>=/..</span>
+            </div>
+          </div>
+        </div>
+        <div class="code-block">
+          <p>
+            <span th:text="#{ops.configuring.multi.instance.edit}"></span>
+            <span class="code-config">./conf/logback.xml</span>
+            <span th:text="#{ops.configuring.multi.instance.path}"></span>
+          </p>
+          <div class="language">
+            <div>LOG_HOME</div>
+          </div>
+        </div>
+        <div class="code-block">
+          <p>
+            <span th:text="#{ops.configuring.multi.instance.edit}"></span>
+            <span class="code-config">./conf/myberry.properties</span>
+            <span th:text="#{ops.configuring.multi.instance.path}"></span>
+          </p>
+          <div class="language">
+            <div>
+              <span class="prop-item">storePath</span><span>=/..</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <h2 th:text="#{ops.run.title}">Run</h2>
+        <p th:text="#{ops.run.description}"></p>
+        <div class="code-block">
+          <p>
+            <span th:text="#{ops.run.env.edit}"></span>
+            <span class="code-config">~/.bash_profile</span>
+          </p>
+          <div class="language">
+            <div>
+              <span class="shell-dl">$</span><span
+                class="shell-var">JAVA_HOME</span><span>=/..</span>
+            </div>
+            <div>
+              <span class="shell-dl">$</span><span
+                class="shell-var">MYBERRY_HOME</span><span>=/..</span>
+            </div>
+          </div>
+        </div>
+        <div class="code-block">
+          <p>
+            <span th:text="#{ops.run.jvm.shell}"></span>
+            <span class="code-config">./bin/runserver.sh</span>
+            <span th:text="#{ops.run.jvm.options}"></span>
+          </p>
+          <div class="language">
+            <div>-server -Xmx4g -Xms4g</div>
+          </div>
+        </div>
+        <div class="code-block">
+          <p th:text="#{ops.run.server}"></p>
+          <div class="language">
+            <div>./startup.sh</div>
+          </div>
+        </div>
+        <div class="code-block">
+          <p th:text="#{ops.run.help}"></p>
+          <div class="language">
+            <div>./startup.sh -h</div>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <h2 th:text="#{ops.console.title}">Console</h2>
+        <p>
+          <span th:text="#{ops.console.description1}"></span>
+          <a th:href="@{https://gitee.com/myberry/myberry-console}"
+             target="_blank">myberry-console</a>
+          <span th:text="#{ops.console.description2}"></span>
+        </p>
+        <p>
+          <em th:text="#{ops.settings}"></em>
+        </p>
+        <div class="code-block">
+          <p>
+            <span th:text="#{ops.settings.description1}"></span>
+            <span class="code-config">application.properties</span>
+            <span th:text="#{ops.settings.description2}"></span>
+          </p>
+          <div class="language">
+            <div>
+              <span class="prop-item">myberry.serverAddr</span><span>=..</span>
+            </div>
+            <div>
+              <span class="prop-item">myberry.password</span><span>=..</span>
+            </div>
+          </div>
+        </div>
+        <p class="p-space-top">
+          <em th:text="#{ops.console.building.and.run}"></em>
+        </p>
+        <div class="code-block">
+          <p th:text="#{ops.console.building}"></p>
+          <div class="language">
+            <span>mvn</span><span>&nbsp;</span><span>clean</span><span>&nbsp;</span><span
+              class="bash-nb">package</span>
+          </div>
+        </div>
+        <div class="code-block">
+          <p th:text="#{ops.console.run}"></p>
+          <div class="language">java -jar myberry-console-*.jar</div>
+        </div>
+        <p class="p-space-top">
+          <em th:text="#{ops.console.example}"></em>
+        </p>
+        <p class="p-space-top" th:text="#{ops.console.home}"></p>
+        <div class="demo-pic" th:switch="#{lang}">
+          <img th:case="zh" src="static/img/ops/console-home_zh.png">
+          <img th:case="*" src="static/img/ops/console-home_en.png">
+        </div>
+        <p class="p-top-far" th:text="#{ops.console.weight}"></p>
+        <div class="demo-pic" th:switch="#{lang}">
+          <img th:case="zh" src="static/img/ops/console-weight_zh.png">
+          <img th:case="*" src="static/img/ops/console-weight_en.png">
+        </div>
+        <p class="p-top-far" th:text="#{ops.console.block.file}"></p>
+        <div class="demo-pic" th:switch="#{lang}">
+          <img th:case="zh" src="static/img/ops/console-block-file_zh.png">
+          <img th:case="*" src="static/img/ops/console-block-file_en.png">
+        </div>
+        <p class="p-top-far" th:text="#{ops.console.extend}"></p>
+        <p>
+          <em th:text="#{ops.console.expansion}"></em>
+        </p>
+        <div class="code-block">
+          <p th:text="#{ops.console.expansion.introduction1}"></p>
+          <div class="language">
+            <div>
+              <span class="prop-item">mySid</span><span>=2</span>
+            </div>
+            <div>
+              <span class="prop-item">haServerAddr</span><span>=2@192.168.1.2&#58;10737&#44;3@192.168.1.2&#58;10747&#44;4@192.168.1.2&#58;10757</span>
+            </div>
+            <div class="prop-comment">
+              #-----------------------------------------------------------------------------
+            </div>
+            <div>
+              <span class="prop-item">mySid</span><span>=3</span>
+            </div>
+            <div>
+              <span class="prop-item">haServerAddr</span><span>=2@192.168.1.2&#58;10737&#44;3@192.168.1.2&#58;10747&#44;4@192.168.1.2&#58;10757</span>
+            </div>
+            <div class="prop-comment">
+              #-----------------------------------------------------------------------------
+            </div>
+            <div>
+              <span class="prop-item">mySid</span><span>=4</span>
+            </div>
+            <div>
+              <span class="prop-item">haServerAddr</span><span>=2@192.168.1.2&#58;10737&#44;3@192.168.1.2&#58;10747&#44;4@192.168.1.2&#58;10757</span>
+            </div>
+          </div>
+        </div>
+        <div class="code-block">
+          <p th:text="#{ops.console.expansion.introduction2}"></p>
+          <div class="language">
+            <div>
+              <span class="prop-item">mySid</span><span>=5</span>
+            </div>
+            <div>
+              <span class="prop-item">haServerAddr</span><span>=2@192.168.1.2&#58;10737&#44;3@192.168.1.2&#58;10747&#44;4@192.168.1.2&#58;10757&#44;5@192.168.1.2&#58;10767</span>
+            </div>
+          </div>
+        </div>
+        <p class="p-space-top">
+          <em th:text="#{ops.console.shrink}"></em>
+        </p>
+        <p th:text="#{ops.console.shrink.introduction}"></p>
+        <p class="p-top-far" th:text="#{ops.console.shrink.description1}"></p>
+        <div class="demo-pic" th:switch="#{lang}">
+          <img th:case="zh" src="static/img/ops/console-kick-out_zh.png">
+          <img th:case="*" src="static/img/ops/console-kick-out_en.png">
+        </div>
+        <p class="p-top-far" th:text="#{ops.console.shrink.description2}"></p>
+        <div class="demo-pic" th:switch="#{lang}">
+          <img th:case="zh" src="static/img/ops/console-kicked-out-ban_zh.png">
+          <img th:case="*" src="static/img/ops/console-kicked-out-ban_en.png">
+        </div>
+        <div class="code-block p-top-far">
+          <p th:text="#{ops.console.shrink.description3}"></p>
+          <div class="language">
+            <div>./shutdown.sh</div>
+          </div>
+        </div>
+        <p class="p-top-far" th:text="#{ops.console.shrink.description4}"></p>
+        <div class="demo-pic" th:switch="#{lang}">
+          <img th:case="zh" src="static/img/ops/console-kicked-out_zh.png">
+          <img th:case="*" src="static/img/ops/console-kicked-out_en.png">
+        </div>
+        <p class="p-top-far" th:text="#{ops.console.shrink.description5}"></p>
+        <div class="demo-pic" th:switch="#{lang}">
+          <img th:case="zh" src="static/img/ops/console-remove_zh.png">
+          <img th:case="*" src="static/img/ops/console-remove_en.png">
+        </div>
+        <p class="p-top-far" th:text="#{ops.console.shrink.description6}"></p>
+        <div class="demo-pic" th:switch="#{lang}">
+          <img th:case="zh" src="static/img/ops/console-removed_zh.png">
+          <img th:case="*" src="static/img/ops/console-removed_en.png">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

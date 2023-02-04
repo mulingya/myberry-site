@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:attr="lang=#{lang}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="id builder, distributed id builder, id generator, distributed id generator,
+        unique id, myberry, 发号器, ID发号器, 分布式ID发号器, ID生成器, 分布式ID生成器">
+  <meta name="description" th:attr="content=#{content}">
+  <title th:text="|MyBerry - #{wellcome}|"></title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+  <link rel="bookmark" href="/favicon.ico"/>
+  <link type="text/css" rel="stylesheet" href="static/css/main.css"/>
+  <style>
+    .content > ul {
+      list-style: none;
+      display: flex;
+    }
+
+    .content > ul li {
+      min-width: 1.6rem;
+      position: relative;
+      flex-direction: row;
+    }
+
+    .content > ul li img {
+      position: absolute;
+      top: calc(2.9375 / 4.875 * 100%); /*根据同行字体中位线偏移量计算*/
+      margin-top: -0.625rem; /*margin-top=font-size/2*/
+      right: 0;
+      height: 1.25rem;
+    }
+
+    .content .segment ul {
+      padding: 0 1.25rem;
+    }
+
+    .content .latest-released {
+      color: #28a745;
+    }
+
+    .content .history-released {
+      color: #586069;
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="nav-container" id="nav-slider">
+    <div>
+      <div class="logo">
+        <img src="static/svg/myberry.svg">
+      </div>
+      <div class="nav">
+        <div>
+          <ul>
+            <li class="nav-item">
+              <a href="/" class="nav-graph selected" th:text="#{wellcome}">Wellcome</a>
+            </li>
+            <li class="nav-item">
+              <a href="/quickstart" class="nav-graph" th:text="#{quickstart}">Quick Start</a>
+            </li>
+            <li class="nav-item">
+              <a href="/docs" class="nav-graph" th:text="#{documentation}">Documentation</a>
+            </li>
+            <li class="nav-item">
+              <a href="/license" class="nav-graph" th:text="#{license}">License</a>
+            </li>
+            <li class="nav-item">
+              <a href="/design" class="nav-graph" th:text="#{design}">Design</a>
+            </li>
+            <li class="nav-item">
+              <div class="nav-item unfolded" th:text="#{practice}">PRACTICE</div>
+              <ul>
+                <li class="nav-item">
+                  <a href="/dev" class="nav-graph" th:text="#{dev}">Dev</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/ops" class="nav-graph" th:text="#{ops}">Ops</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="/performance" class="nav-graph" th:text="#{performance}">Performance</a>
+            </li>
+            <li class="nav-item">
+              <a href="/faq" class="nav-graph" th:text="#{faq}">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a href="/thanks" class="nav-graph" th:text="#{thanks}">Thanks</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer">
+        <span>© [[${#dates.format(new java.util.Date().getTime(), 'yyyy')}]] MyBerry</span>
+      </div>
+    </div>
+  </div>
+  <div id="glass"
+       onclick="document.getElementById('nav-slider').classList.remove('nav-opened');document.getElementById('glass').classList.remove('glass');"></div>
+  <div class="main-container">
+    <div class="breadcrumbs">
+      <div class="breadcrumb">
+        <botton
+            onclick="document.getElementById('nav-slider').classList.add('nav-opened');document.getElementById('glass').classList.add('glass');">
+          <span></span></botton>
+        <ul>
+          <li>MyBerry</li>
+          <li>/</li>
+          <li th:text="#{wellcome}">Wellcome</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <div class="content">
+        <h1 th:text="#{wellcome.title}"></h1>
+        <p th:text="#{wellcome.introduction}"></p>
+      </div>
+      <div class="content">
+        <ul>
+          <li>
+            <h2 th:text="#{wellcome.latest.released.title}" class="latest-released"></h2>
+          </li>
+          <li>
+            <a href="https://gitee.com/myberry/myberry/releases/tag/v2.0.0" target="_blank">
+              <img alt="Gitee" title="Gitee" src="static/svg/gitee.svg">
+            </a>
+          </li>
+        </ul>
+        <div class="segment">
+          <p th:text="#{wellcome.latest.released.introduction}"></p>
+          <ul>
+            <li th:text="#{wellcome.latest.released.change1}"></li>
+            <li th:text="#{wellcome.latest.released.change2}"></li>
+            <li th:text="#{wellcome.latest.released.change3}"></li>
+            <li th:text="#{wellcome.latest.released.change4}"></li>
+            <li th:text="#{wellcome.latest.released.change5}"></li>
+            <li th:text="#{wellcome.latest.released.change6}"></li>
+            <li th:text="#{wellcome.latest.released.change7}"></li>
+            <li th:text="#{wellcome.latest.released.change8}"></li>
+            <li th:text="#{wellcome.latest.released.change9}"></li>
+            <li th:text="#{wellcome.latest.released.change10}"></li>
+            <li th:text="#{wellcome.latest.released.change11}"></li>
+            <li th:text="#{wellcome.latest.released.change12}"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="content">
+        <ul>
+          <li>
+            <h2 th:text="#{wellcome.waterfall.4.released.title}"></h2>
+          </li>
+          <li>
+            <a href="https://github.com/govyung/myberry/releases/tag/v1.1.0" target="_blank">
+              <img alt="GitHub" title="GitHub" src="static/svg/github.svg">
+            </a>
+          </li>
+        </ul>
+        <div class="segment">
+          <p th:text="#{wellcome.waterfall.4.released.introduction}"></p>
+          <ul>
+            <li th:text="#{wellcome.waterfall.4.released.change1}"></li>
+            <li th:text="#{wellcome.waterfall.4.released.change2}"></li>
+            <li th:text="#{wellcome.waterfall.4.released.change3}"></li>
+            <li th:text="#{wellcome.waterfall.4.released.change4}"></li>
+            <li th:text="#{wellcome.waterfall.4.released.change5}"></li>
+            <li th:text="#{wellcome.waterfall.4.released.change6}"></li>
+            <li th:text="#{wellcome.waterfall.4.released.change7}"></li>
+            <li th:text="#{wellcome.waterfall.4.released.change8}"></li>
+            <li th:text="#{wellcome.waterfall.4.released.change9}"></li>
+            <li th:text="#{wellcome.waterfall.4.released.change10}"></li>
+            <li th:text="#{wellcome.waterfall.4.released.change11}"></li>
+            <li th:text="#{wellcome.waterfall.4.released.change12}"></li>
+            <li th:text="#{wellcome.waterfall.4.released.change13}"></li>
+            <li th:text="#{wellcome.waterfall.4.released.change14}"></li>
+            <li th:text="#{wellcome.waterfall.4.released.change15}"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="content">
+        <ul>
+          <li>
+            <h2 th:text="#{wellcome.waterfall.3.released.title}"></h2>
+          </li>
+          <li>
+            <a href="https://github.com/govyung/myberry/releases/tag/v1.0.2" target="_blank">
+              <img alt="GitHub" title="GitHub" src="static/svg/github.svg">
+            </a>
+          </li>
+        </ul>
+        <div class="segment">
+          <p th:text="#{wellcome.waterfall.3.released.introduction}"></p>
+          <ul>
+            <li th:text="#{wellcome.waterfall.3.released.change1}"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="content">
+        <ul>
+          <li>
+            <h2 th:text="#{wellcome.waterfall.2.released.title}"></h2>
+          </li>
+          <li>
+            <a href="https://github.com/govyung/myberry/releases/tag/v1.0.1" target="_blank">
+              <img alt="GitHub" title="GitHub" src="static/svg/github.svg">
+            </a>
+          </li>
+        </ul>
+        <div class="segment">
+          <p th:text="#{wellcome.waterfall.2.released.introduction}"></p>
+          <ul>
+            <li th:text="#{wellcome.waterfall.2.released.change1}"></li>
+            <li th:text="#{wellcome.waterfall.2.released.change2}"></li>
+            <li th:text="#{wellcome.waterfall.2.released.change3}"></li>
+            <li th:text="#{wellcome.waterfall.2.released.change4}"></li>
+            <li th:text="#{wellcome.waterfall.2.released.change5}"></li>
+            <li th:text="#{wellcome.waterfall.2.released.change6}"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="content">
+        <ul>
+          <li>
+            <h2 th:text="#{wellcome.waterfall.1.released.title}"></h2>
+          </li>
+          <li>
+            <a href="https://github.com/govyung/myberry/releases/tag/v1.0.0" target="_blank">
+              <img alt="GitHub" title="GitHub" src="static/svg/github.svg">
+            </a>
+          </li>
+        </ul>
+        <div class="segment">
+          <p th:text="#{wellcome.waterfall.1.released.introduction}"></p>
+          <ul>
+            <li th:text="#{wellcome.waterfall.1.released.change1}"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="content">
+        <ul>
+          <li>
+            <h2 th:text="#{wellcome.history.released.title}" class="history-released"></h2>
+          </li>
+          <li>
+            <a href="https://github.com/govyung/myberry/releases" target="_blank">
+              <img alt="GitHub" title="GitHub" src="static/svg/github.svg">
+            </a>
+          </li>
+          <li>
+            <a href="https://gitee.com/myberry/myberry/releases" target="_blank">
+              <img alt="Gitee" title="Gitee" src="static/svg/gitee.svg">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

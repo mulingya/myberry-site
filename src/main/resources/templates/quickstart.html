@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:attr="lang=#{lang}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title th:text="|MyBerry - #{quickstart}|"></title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+  <link rel="bookmark" href="/favicon.ico"/>
+  <link type="text/css" rel="stylesheet" href="static/css/main.css"/>
+  <link type="text/css" rel="stylesheet" href="static/css/code.css"/>
+</head>
+<body>
+<div class="wrapper">
+  <div class="nav-container" id="nav-slider">
+    <div>
+      <div class="logo">
+        <img src="static/svg/myberry.svg">
+      </div>
+      <div class="nav">
+        <div>
+          <ul>
+            <li class="nav-item">
+              <a href="/" class="nav-graph" th:text="#{wellcome}">Wellcome</a>
+            </li>
+            <li class="nav-item">
+              <a href="/quickstart" class="nav-graph selected" th:text="#{quickstart}">Quick
+                Start</a>
+            </li>
+            <li class="nav-item">
+              <a href="/docs" class="nav-graph" th:text="#{documentation}">Documentation</a>
+            </li>
+            <li class="nav-item">
+              <a href="/license" class="nav-graph" th:text="#{license}">License</a>
+            </li>
+            <li class="nav-item">
+              <a href="/design" class="nav-graph" th:text="#{design}">Design</a>
+            </li>
+            <li class="nav-item">
+              <div class="nav-item unfolded" th:text="#{practice}">PRACTICE</div>
+              <ul>
+                <li class="nav-item">
+                  <a href="/dev" class="nav-graph" th:text="#{dev}">Dev</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/ops" class="nav-graph" th:text="#{ops}">Ops</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="/performance" class="nav-graph" th:text="#{performance}">Performance</a>
+            </li>
+            <li class="nav-item">
+              <a href="/faq" class="nav-graph" th:text="#{faq}">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a href="/thanks" class="nav-graph" th:text="#{thanks}">Thanks</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer">
+        <span>© [[${#dates.format(new java.util.Date().getTime(), 'yyyy')}]] MyBerry</span>
+      </div>
+    </div>
+  </div>
+  <div id="glass"
+       onclick="document.getElementById('nav-slider').classList.remove('nav-opened');document.getElementById('glass').classList.remove('glass');"></div>
+  <div class="main-container">
+    <div class="breadcrumbs">
+      <div class="breadcrumb">
+        <botton
+            onclick="document.getElementById('nav-slider').classList.add('nav-opened');document.getElementById('glass').classList.add('glass');">
+          <span></span></botton>
+        <ul>
+          <li>MyBerry</li>
+          <li>/</li>
+          <li th:text="#{quickstart}">Quick Start</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <div class="content">
+        <h1 th:text="#{quickstart}">Quick Start</h1>
+        <p th:text="#{quickstart.guide}"></p>
+      </div>
+      <div class="content">
+        <h2 th:text="#{quickstart.maven}"></h2>
+        <p class="p-space-bottom">maven:</p>
+        <div class="language">
+          <div class="xml-dom">&lt;dependency&gt;</div>
+          <div class="xml-dom-child">
+            <span class="xml-dom">&lt;groupId&gt;</span><span>org.myberry</span><span
+              class="xml-dom">&lt;/groupId&gt;</span>
+          </div>
+          <div class="xml-dom-child">
+            <span class="xml-dom">&lt;artifactId&gt;</span><span>myberry-client</span><span
+              class="xml-dom">&lt;/artifactId&gt;</span>
+          </div>
+          <div class="xml-dom-child">
+            <span class="xml-dom">&lt;version&gt;</span><span>2.0.0</span><span class="xml-dom">&lt;/version&gt;</span>
+          </div>
+          <div class="xml-dom">&lt;/dependency&gt;</div>
+        </div>
+      </div>
+      <div class="content">
+        <h2 th:text="#{quickstart.debug}"></h2>
+        <p class="p-space-bottom" th:text="#{quickstart.debug.introduction}"></p>
+        <div class="language">
+          <div>
+            <span
+                class="java-keyword">import</span><span>&nbsp;</span><span>java.util.HashMap;</span>
+          </div>
+          <br>
+          <div>
+            <span class="java-keyword">import</span><span>&nbsp;</span><span>org.myberry.client.admin.DefaultAdminClient;</span>
+          </div>
+          <div>
+            <span class="java-keyword">import</span><span>&nbsp;</span><span>org.myberry.client.admin.SendResult;</span>
+          </div>
+          <div>
+            <span class="java-keyword">import</span><span>&nbsp;</span><span>org.myberry.client.user.DefaultUserClient;</span>
+          </div>
+          <div>
+            <span class="java-keyword">import</span><span>&nbsp;</span><span>org.myberry.client.user.PullResult;</span>
+          </div>
+          <div>
+            <span class="java-keyword">import</span><span>&nbsp;</span><span>org.myberry.common.protocol.body.admin.CRComponentData;</span>
+          </div>
+          <div>
+            <span class="java-keyword">import</span><span>&nbsp;</span><span>org.myberry.common.protocol.body.admin.NSComponentData;</span>
+          </div>
+          <div>
+            <span class="java-keyword">import</span><span>&nbsp;</span><span>org.myberry.common.strategy.StrategyDate;</span>
+          </div>
+          <br>
+          <div>
+            <span class="java-keyword">public</span><span>&nbsp;</span><span class="java-keyword">class</span><span>&nbsp;</span><span>MyBerryTest {</span>
+          </div>
+          <br>
+          <div class="java-line-child">
+            <div>
+              <span class="java-keyword">public</span><span>&nbsp;</span><span class="java-keyword">static</span><span>&nbsp;</span><span
+                class="java-keyword">void</span><span>&nbsp;</span><span>main(String[]</span><span>&nbsp;</span><span
+                class="java-obj">args</span><span>)</span><span>&nbsp;</span><span
+                class="java-keyword">throws</span><span>&nbsp;</span><span>Exception {</span>
+            </div>
+            <div class="java-line-child">
+              <span>DefaultAdminClient</span><span>&nbsp;</span><span class="java-obj">defaultAdminClient</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                class="java-keyword">new</span><span>&nbsp;</span><span>DefaultAdminClient();</span>
+            </div>
+            <div class="java-line-child">
+              <span class="java-obj">defaultAdminClient</span><span>.setPassword(</span><span
+                class="java-str">&quot;foobared&quot;</span><span>);</span>
+            </div>
+            <div class="java-line-child">
+              <span class="java-obj">defaultAdminClient</span><span>.setServerAddr(</span><span
+                class="java-str">&quot;192.168.1.2:8085,192.168.1.2:8086,192.168.1.2:8087&quot;</span><span>);</span>
+            </div>
+            <div class="java-line-child">
+              <span class="java-obj">defaultAdminClient</span><span>.setInstanceName(</span><span
+                class="java-str">&quot;ADMIN&quot;</span><span>);</span>
+            </div>
+            <div class="java-line-child">
+              <span class="java-obj">defaultAdminClient</span><span>.start();</span>
+            </div>
+            <br>
+            <div class="java-line-child">
+              <i class="java-remark">/* create CR */</i>
+            </div>
+            <div class="java-line-child">
+              <span>CRComponentData</span><span>&nbsp;</span><span class="java-obj">cr</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                class="java-keyword">new</span><span>&nbsp;</span><span>CRComponentData();</span>
+            </div>
+            <div class="java-line-child">
+              <span class="java-obj">cr</span><span>.setKey(</span><span class="java-str">&quot;key1&quot;</span><span>);</span>
+            </div>
+            <div class="java-line-child">
+              <div>
+                <span class="java-obj">cr</span><span>.setExpression(</span><span class="java-str">&quot;[#time(day) 9 #sid(2) #sid(1) #sid(0) m #incr(4) &quot;</span>
+              </div>
+              <div class="java-line-child">
+                <span>+</span><span>&nbsp;</span><span class="java-str">&quot;#incr(3) #incr(2) #incr(1) #incr(0) $dynamic(hello) #rand(3)]&quot;</span><span>);</span>
+              </div>
+            </div>
+            <div class="java-line-child">
+              <span>SendResult</span><span>&nbsp;</span><span
+                class="java-obj">sr</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                class="java-obj">defaultAdminClient</span><span>.createComponent(</span><span
+                class="java-obj">cr</span><span>);</span>
+            </div>
+            <div class="java-line-child">
+              <i class="java-comment">// SendStatus [sendStatus=SEND_OK, key=key1]</i>
+            </div>
+            <div class="java-line-child">
+              <span>System.</span><span class="java-static">out</span><span>.println(</span><span
+                class="java-obj">sr</span><span>);</span>
+            </div>
+            <br>
+            <div class="java-line-child">
+              <span
+                  class="java-obj">sr</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                class="java-obj">defaultAdminClient</span><span>.queryComponentByKey(</span><span
+                class="java-str">&quot;key1&quot;</span><span>);</span>
+            </div>
+            <div class="java-line-child">
+              <i class="java-comment">// SendResult [sendStatus=SEND_OK, key=key1,
+                component=CRComponentData [key=key1, expression=[#time(day) 9</i>
+            </div>
+            <div class="java-line-child"><i class="java-comment">// #sid(2) #sid(1) #sid(0) m
+              #incr(4) #incr(3) #incr(2) #incr(1) #incr(0) $dynamic(hello) #rand(3)], status=1,</i>
+            </div>
+            <div class="java-line-child"><i class="java-comment">// createTime=1638295011727,
+              updateTime=1638295011727, structure=1]]</i></div>
+            <div class="java-line-child">
+              <span>System.</span><span class="java-static">out</span><span>.println(</span><span
+                class="java-obj">sr</span><span>);</span>
+            </div>
+            <br>
+            <div class="java-line-child">
+              <i class="java-remark">/* create NS */</i>
+            </div>
+            <div class="java-line-child">
+              <span>NSComponentData</span><span>&nbsp;</span><span class="java-obj">ns</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                class="java-keyword">new</span><span>&nbsp;</span><span>NSComponentData();</span>
+            </div>
+            <div class="java-line-child">
+              <span class="java-obj">ns</span><span>.setKey(</span><span class="java-str">&quot;key2&quot;</span><span>);</span>
+            </div>
+            <div class="java-line-child">
+              <span class="java-obj">ns</span><span>.setInitNumber(100);</span>
+            </div>
+            <div class="java-line-child">
+              <span class="java-obj">ns</span><span>.setStepSize(5);</span>
+            </div>
+            <div class="java-line-child">
+              <span class="java-obj">ns</span><span>.setResetType(StrategyDate.</span><span
+                class="java-static">TIME_MONTH</span><span>);</span>
+            </div>
+            <div class="java-line-child">
+              <span
+                  class="java-obj">sr</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                class="java-obj">defaultAdminClient</span><span>.createComponent(</span><span
+                class="java-obj">ns</span><span>);</span>
+            </div>
+            <div class="java-line-child">
+              <i class="java-comment">// SendResult [sendStatus=SEND_OK, key=key2]</i>
+            </div>
+            <div class="java-line-child">
+              <span>System.</span><span class="java-static">out</span><span>.println(</span><span
+                class="java-obj">sr</span><span>);</span>
+            </div>
+            <br>
+            <div class="java-line-child">
+              <span
+                  class="java-obj">sr</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                class="java-obj">defaultAdminClient</span><span>.queryComponentByKey(</span><span
+                class="java-str">&quot;key2&quot;</span><span>);</span>
+            </div>
+            <div class="java-line-child">
+              <i class="java-comment">// SendResult [sendStatus=SEND_OK, key=key2,
+                component=NSComponentData [key=key2, initNumber=100, stepSize=5,</i>
+            </div>
+            <div class="java-line-child"><i class="java-comment">// resetType=2, status=1,
+              createTime=1638295011775, updateTime=1638295011775, structure=2]]</i>
+            </div>
+            <div class="java-line-child">
+              <span>System.</span><span class="java-static">out</span><span>.println(</span><span
+                class="java-obj">sr</span><span>);</span>
+            </div>
+            <br>
+            <div class="java-line-child">
+              <i class="java-remark">/* queryComponentSize */</i>
+            </div>
+            <div class="java-line-child">
+              <span
+                  class="java-obj">sr</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                class="java-obj">defaultAdminClient</span><span>.queryComponentSize();</span>
+            </div>
+            <div class="java-line-child">
+              <i class="java-comment">// SendResult [sendStatus=SEND_OK, size=2]</i>
+            </div>
+            <div class="java-line-child">
+              <span>System.</span><span class="java-static">out</span><span>.println(</span><span
+                class="java-obj">sr</span><span>);</span>
+            </div>
+            <br>
+            <div class="java-line-child">
+              <i class="java-remark">/* update NS */</i>
+            </div>
+            <div class="java-line-child">
+              <span class="java-obj">ns</span><span>.setKey(</span><span class="java-str">&quot;key2&quot;</span><span>);</span>
+            </div>
+            <div class="java-line-child">
+              <span class="java-obj">ns</span><span>.setInitNumber(100);</span>
+            </div>
+            <div class="java-line-child">
+              <span class="java-obj">ns</span><span>.setStepSize(10);</span>
+            </div>
+            <div class="java-line-child">
+              <span class="java-obj">ns</span><span>.setResetType(StrategyDate.</span><span
+                class="java-static">TIME_DAY</span><span>);</span>
+            </div>
+            <div class="java-line-child">
+              <span
+                  class="java-obj">sr</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                class="java-obj">defaultAdminClient</span><span>.updateComponent(</span><span
+                class="java-obj">ns</span><span>);</span>
+            </div>
+            <div class="java-line-child">
+              <i class="java-comment">// SendResult [sendStatus=SEND_OK, key=key2]</i>
+            </div>
+            <div class="java-line-child">
+              <span>System.</span><span class="java-static">out</span><span>.println(</span><span
+                class="java-obj">sr</span><span>);</span>
+            </div>
+            <br>
+            <div class="java-line-child">
+              <span
+                  class="java-obj">sr</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                class="java-obj">defaultAdminClient</span><span>.queryComponentByKey(</span><span
+                class="java-str">&quot;key2&quot;</span><span>);</span>
+            </div>
+            <div class="java-line-child">
+              <i class="java-comment">// SendResult [sendStatus=SEND_OK, key=key2,
+                component=NSComponentData [key=key2, initNumber=100, stepSize=10,</i>
+            </div>
+            <div class="java-line-child">
+              <i class="java-comment">// resetType=1, status=1, createTime=1638295011775,
+                updateTime=1638295012437, structure=2]]</i>
+            </div>
+            <div class="java-line-child">
+              <span>System.</span><span class="java-static">out</span><span>.println(</span><span
+                class="java-obj">sr</span><span>);</span>
+            </div>
+            <br>
+            <div class="java-line-child">
+              <span>Thread.sleep(3000);</span>
+            </div>
+            <div class="java-line-child">
+              <span class="java-obj">defaultAdminClient</span><span>.shutdown();</span>
+            </div>
+            <br>
+            <div class="java-line-child">
+              <span>DefaultUserClient</span><span>&nbsp;</span><span class="java-obj">defaultUserClient</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                class="java-keyword">new</span><span>&nbsp;</span><span>DefaultUserClient();</span>
+            </div>
+            <div class="java-line-child">
+              <span class="java-obj">defaultUserClient</span><span>.setServerAddr(</span><span
+                class="java-str">&quot;192.168.1.2:8085,192.168.1.2:8086,192.168.1.2:8087&quot;</span><span>);</span>
+            </div>
+            <div class="java-line-child">
+              <span class="java-obj">defaultUserClient</span><span>.setInstanceName(</span><span
+                class="java-str">&quot;USER&quot;</span><span>);</span>
+            </div>
+            <div class="java-line-child">
+              <span class="java-obj">defaultUserClient</span><span>.start();</span>
+            </div>
+            <br>
+            <div class="java-line-child">
+              <i class="java-remark">/* pull CR */</i>
+            </div>
+            <div class="java-line-child">
+              <span>HashMap&lt;String, String&gt;</span><span>&nbsp;</span><span class="java-obj">attachments</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                class="java-keyword">new</span><span>&nbsp;</span><span>HashMap&lt;&gt;();</span>
+            </div>
+            <div class="java-line-child">
+              <span class="java-obj">attachments</span><span>.put(</span><span class="java-str">&quot;hello&quot;</span><span>,&nbsp;</span><span
+                class="java-str">&quot;world&quot;</span><span>);</span>
+            </div>
+            <div class="java-line-child">
+              <span>PullResult</span><span>&nbsp;</span><span
+                class="java-obj">pr</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                class="java-obj">defaultUserClient</span><span>.pull(</span><span class="java-str">&quot;key1&quot;</span><span>,&nbsp;</span><span
+                class="java-obj">attachments</span><span>);</span>
+            </div>
+            <div class="java-line-child">
+              <i class="java-comment">PullResult [pullStatus=PULL_OK, key=key1,
+                newId=202112019002m00001world990]</i>
+            </div>
+            <div class="java-line-child">
+              <span>System.</span><span class="java-static">out</span><span>.println(</span><span
+                class="java-obj">pr</span><span>);</span>
+            </div>
+            <br>
+            <div class="java-line-child">
+              <i class="java-remark">/* pull NS */</i>
+            </div>
+            <div class="java-line-child">
+              <span
+                  class="java-obj">pr</span><span>&nbsp;</span><span>=</span><span>&nbsp;</span><span
+                class="java-obj">defaultUserClient</span><span>.pull(</span><span class="java-str">&quot;key2&quot;</span><span>);</span>
+            </div>
+            <div class="java-line-child">
+              <i class="java-comment">// PullResult [pullStatus=PULL_OK, key=key2, start=100,
+                end=109, synergyId=3]</i>
+            </div>
+            <div class="java-line-child">
+              <span>System.</span><span class="java-static">out</span><span>.println(</span><span
+                class="java-obj">pr</span><span>);</span>
+            </div>
+            <br>
+            <div class="java-line-child">
+              <span>Thread.sleep(3000);</span>
+            </div>
+            <div class="java-line-child">
+              <span class="java-obj">defaultUserClient</span><span>.shutdown();</span>
+            </div>
+          </div>
+          <div class="java-line-child">
+            <span>}</span>
+          </div>
+          <div>
+            <span>}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

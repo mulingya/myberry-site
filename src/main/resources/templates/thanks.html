@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:attr="lang=#{lang}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title th:text="|MyBerry - #{thanks}|"></title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+  <link rel="bookmark" href="/favicon.ico"/>
+  <link type="text/css" rel="stylesheet" href="static/css/main.css"/>
+  <style>
+    .content ul {
+      list-style: none;
+    }
+
+    .content .photo-album {
+      margin-top: 1rem;
+      list-style: none;
+      display: flex;
+      font-size: 1rem;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .content .photo-album img {
+      width: 4.8rem; /*黄金分割*/
+    }
+
+    .content .photo-album > li {
+      width: 12.567rem;
+      position: relative;
+    }
+
+    .content .personal-info {
+      width: 7.767rem; /*黄金分割*/
+      position: absolute;
+      right: 0;
+      box-shadow: -3px -3px 3px 0px rgba(0, 0, 0, 0.1) inset;
+    }
+
+    .content .personal-info li {
+      height: 1.6rem;
+      text-align: right;
+      line-height: 1.6rem;
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="nav-container" id="nav-slider">
+    <div>
+      <div class="logo">
+        <img src="static/svg/myberry.svg">
+      </div>
+      <div class="nav">
+        <div>
+          <ul>
+            <li class="nav-item">
+              <a href="/" class="nav-graph" th:text="#{wellcome}">Wellcome</a>
+            </li>
+            <li class="nav-item">
+              <a href="/quickstart" class="nav-graph" th:text="#{quickstart}">Quick Start</a>
+            </li>
+            <li class="nav-item">
+              <a href="/docs" class="nav-graph" th:text="#{documentation}">Documentation</a>
+            </li>
+            <li class="nav-item">
+              <a href="/license" class="nav-graph" th:text="#{license}">License</a>
+            </li>
+            <li class="nav-item">
+              <a href="/design" class="nav-graph" th:text="#{design}">Design</a>
+            </li>
+            <li class="nav-item">
+              <div class="nav-item unfolded" th:text="#{practice}">PRACTICE</div>
+              <ul>
+                <li class="nav-item">
+                  <a href="/dev" class="nav-graph" th:text="#{dev}">Dev</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/ops" class="nav-graph" th:text="#{ops}">Ops</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="/performance" class="nav-graph" th:text="#{performance}">Performance</a>
+            </li>
+            <li class="nav-item">
+              <a href="/faq" class="nav-graph" th:text="#{faq}">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a href="/thanks" class="nav-graph selected" th:text="#{thanks}">Thanks</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer">
+        <span>© [[${#dates.format(new java.util.Date().getTime(), 'yyyy')}]] MyBerry</span>
+      </div>
+    </div>
+  </div>
+  <div id="glass"
+       onclick="document.getElementById('nav-slider').classList.remove('nav-opened');document.getElementById('glass').classList.remove('glass');"></div>
+  <div class="main-container">
+    <div class="breadcrumbs">
+      <div class="breadcrumb">
+        <botton
+            onclick="document.getElementById('nav-slider').classList.add('nav-opened');document.getElementById('glass').classList.add('glass');">
+          <span></span></botton>
+        <ul>
+          <li>MyBerry</li>
+          <li>/</li>
+          <li th:text="#{thanks}">Thanks</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <div class="content">
+        <h1 th:text="#{thanks}"></h1>
+        <p th:text="#{thanks.content}"></p>
+        <ul class="photo-album">
+          <li>
+            <ul class="personal-info">
+              <li th:text="#{name1}"></li>
+              <li th:text="#{current.residence1}"></li>
+              <li th:text="#{contribution1}"></li>
+            </ul>
+            <img src="static/img/thanks/liangdong.jpg">
+          </li>
+          <li>
+            <ul class="personal-info">
+              <li th:text="#{name2}"></li>
+              <li th:text="#{current.residence2}"></li>
+              <li th:text="#{contribution2}"></li>
+            </ul>
+            <img src="static/img/thanks/yangjunfang.jpg">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

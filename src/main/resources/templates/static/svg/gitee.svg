@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#C71D23;}
+	.st1{fill:#FFFFFF;}
+</style>
+<g id="Group">
+	<circle id="Combined-Shape" class="st0" cx="100.2" cy="99.6" r="93.6"/>
+	<path id="G" class="st1" d="M147.6,89.2H94.5c-2.6,0-4.6,2.1-4.6,4.6l0,11.5c0,2.6,2.1,4.6,4.6,4.6c0,0,0,0,0,0l32.3,0
+		c2.6,0,4.6,2.1,4.6,4.6c0,0,0,0,0,0v1.2l0,0v1.2c0,7.7-6.2,13.9-13.9,13.9H73.7c-2.6,0-4.6-2.1-4.6-4.6l0-43.9
+		c0-7.7,6.2-13.9,13.9-13.9c0,0,0,0,0,0h64.7c2.6,0,4.6-2.1,4.6-4.6l0-11.5c0-2.6-2.1-4.6-4.6-4.6c0,0,0,0,0,0H82.9
+		c-19.1,0-34.6,15.5-34.6,34.6V147c0,2.6,2.1,4.6,4.6,4.6H121c17.2,0,31.2-14,31.2-31.2V93.8C152.2,91.3,150.2,89.2,147.6,89.2z"/>
+</g>
+</svg>
+
