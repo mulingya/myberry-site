@@ -97,7 +97,7 @@
               class="xml-dom">&lt;/artifactId&gt;</span>
           </div>
           <div class="xml-dom-child">
-            <span class="xml-dom">&lt;version&gt;</span><span>2.0.1</span><span class="xml-dom">&lt;/version&gt;</span>
+            <span class="xml-dom">&lt;version&gt;</span><span>2.1.0</span><span class="xml-dom">&lt;/version&gt;</span>
           </div>
           <div class="xml-dom">&lt;/dependency&gt;</div>
         </div>
@@ -285,55 +285,6 @@
             </div>
             <br>
             <div class="java-line-child">
-              <i class="java-remark">/* update NS */</i>
-            </div>
-            <div class="java-line-child">
-              <span class="java-obj">ns</span><span>.setKey(</span><span class="java-str">&quot;key2&quot;</span><span>);</span>
-            </div>
-            <div class="java-line-child">
-              <span class="java-obj">ns</span><span>.setInitNumber(100);</span>
-            </div>
-            <div class="java-line-child">
-              <span class="java-obj">ns</span><span>.setStepSize(10);</span>
-            </div>
-            <div class="java-line-child">
-              <span class="java-obj">ns</span><span>.setResetType(StrategyDate.</span><span
-                class="java-static">TIME_DAY</span><span>);</span>
-            </div>
-            <div class="java-line-child">
-              <span
-                  class="java-obj">sr</span><span>&nbsp;</span><span>&#61;</span><span>&nbsp;</span><span
-                class="java-obj">defaultAdminClient</span><span>.updateComponent(</span><span
-                class="java-obj">ns</span><span>);</span>
-            </div>
-            <div class="java-line-child">
-              <i class="java-comment">// SendResult [sendStatus=SEND_OK, key=key2]</i>
-            </div>
-            <div class="java-line-child">
-              <span>System.</span><span class="java-static">out</span><span>.println(</span><span
-                class="java-obj">sr</span><span>);</span>
-            </div>
-            <br>
-            <div class="java-line-child">
-              <span
-                  class="java-obj">sr</span><span>&nbsp;</span><span>&#61;</span><span>&nbsp;</span><span
-                class="java-obj">defaultAdminClient</span><span>.queryComponentByKey(</span><span
-                class="java-str">&quot;key2&quot;</span><span>);</span>
-            </div>
-            <div class="java-line-child">
-              <i class="java-comment">// SendResult [sendStatus=SEND_OK, key=key2,
-                component=NSComponentData [key=key2, initNumber=100, stepSize=10,</i>
-            </div>
-            <div class="java-line-child">
-              <i class="java-comment">// resetType=1, status=1, createTime=1638295011775,
-                updateTime=1638295012437, structure=2]]</i>
-            </div>
-            <div class="java-line-child">
-              <span>System.</span><span class="java-static">out</span><span>.println(</span><span
-                class="java-obj">sr</span><span>);</span>
-            </div>
-            <br>
-            <div class="java-line-child">
               <span>Thread.sleep(3000);</span>
             </div>
             <div class="java-line-child">
@@ -392,7 +343,7 @@
             </div>
             <div class="java-line-child">
               <i class="java-comment">// PullResult [pullStatus=PULL_OK, key=key2, start=100,
-                end=109, synergyId=3]</i>
+                end=104, synergyId=3]</i>
             </div>
             <div class="java-line-child">
               <span>System.</span><span class="java-static">out</span><span>.println(</span><span

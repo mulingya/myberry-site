@@ -298,7 +298,7 @@
             <span th:text="#{ops.run.jvm.options}"></span>
           </p>
           <div class="language">
-            <div>-server -Xmx4g -Xms4g</div>
+            <div>-server -Xmx4g -Xms4g -XX:MetaspaceSize=64m -XX:MaxMetaspaceSize=64m</div>
           </div>
         </div>
         <div class="code-block">

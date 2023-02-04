@@ -33,7 +33,7 @@ public class SitemapController {
       // uri = /
       WebSitemapUrl indexUrl =
           new WebSitemapUrl.Options(baseUrl + "/")
-              .lastMod("2021-12-20")
+              .lastMod("2022-3-8")
               .priority(1.0)
               .changeFreq(ChangeFreq.MONTHLY)
               .build();
@@ -42,7 +42,7 @@ public class SitemapController {
       // uri = /quickstart
       WebSitemapUrl quickstartUrl =
           new WebSitemapUrl.Options(baseUrl + "/quickstart")
-              .lastMod("2021-12-20")
+              .lastMod("2022-3-8")
               .priority(1.0)
               .changeFreq(ChangeFreq.MONTHLY)
               .build();
@@ -51,7 +51,7 @@ public class SitemapController {
       // uri = /docs
       WebSitemapUrl docs =
           new WebSitemapUrl.Options(baseUrl + "/docs")
-              .lastMod("2021-12-11")
+              .lastMod("2022-3-8")
               .priority(1.0)
               .changeFreq(ChangeFreq.MONTHLY)
               .build();
@@ -78,7 +78,7 @@ public class SitemapController {
       // uri = /dev
       WebSitemapUrl dev =
           new WebSitemapUrl.Options(baseUrl + "/dev")
-              .lastMod("2021-12-11")
+              .lastMod("2022-3-8")
               .priority(1.0)
               .changeFreq(ChangeFreq.MONTHLY)
               .build();
@@ -87,7 +87,7 @@ public class SitemapController {
       // uri = /ops
       WebSitemapUrl ops =
           new WebSitemapUrl.Options(baseUrl + "/ops")
-              .lastMod("2021-12-11")
+              .lastMod("2022-3-8")
               .priority(1.0)
               .changeFreq(ChangeFreq.MONTHLY)
               .build();
@@ -105,7 +105,7 @@ public class SitemapController {
       // uri = /faq
       WebSitemapUrl faqUrl =
           new WebSitemapUrl.Options(baseUrl + "/faq")
-              .lastMod("2021-12-22")
+              .lastMod("2022-3-8")
               .priority(1.0)
               .changeFreq(ChangeFreq.MONTHLY)
               .build();
